@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 import time
+import compiler_strategy
 
 # Set up Chrome options to run in headless mode
 chrome_options = Options()
@@ -13,33 +14,33 @@ chrome_options = Options()
 driver = webdriver.Chrome(options=chrome_options)
 
 # Open the website
-url = "https://onecompiler.com/cpp"
+
+file = 'test1.rs'
+file_content = ""
+
+def read_exnt(file_name):
+    return file_name.split('.')[-1]
+
+strategy = compiler_strategy.Programize()
+
+
+url = strategy.generate_url(read_exnt(file))
+
 driver.get(url)
 
-file = 'test.cpp'
-file_content = ""
+
 
 while True:
     with open(file , 'r') as f:
         content = f.read()
         if content != file_content:
             file_content = content
-            js_code = f"let editor = ace.edit('oc_ace'); editor.setValue(`{file_content}`)"
+            js_code = strategy.js_code(file_content)
             driver.execute_script(js_code)
     time.sleep(1)
-
-# Inject JavaScript
-
 
 
 
 prompt = input("Press enter to close");
 
-# Wait for a while to see the changes (you may need to adjust the time based on your page load time)
-# driver.implicitly_wait(5)
-
-# Take a screenshot (optional)
-# driver.save_screenshot("screenshot.png")
-
-# Close the browser
-# driver.quit()
+driver.quit()
