@@ -11,7 +11,7 @@ RUN_IT is an automation tool that takes your source code of a desired langulage 
 
 # It also supports dart :o
 
-Our RUN_IT tool runs dart extension included code on [dartpad](https://dartpad.io) that means you can run flutter package included dart file and see its changes in realtime
+Our RUN_IT tool runs dart extension included code on [dartpad](https://dartpad.dev) that means you can run flutter package included dart file and see its changes in realtime
 
 
 How to use?
