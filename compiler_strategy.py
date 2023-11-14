@@ -48,5 +48,5 @@ class Dartpad(CompilerStrategy):
         return f"https://dartpad.dev"
 
     def js_code(self , source_code) -> str:
-        execute_code = f"const codeMirror = document.querySelectorAll('.CodeMirror')[0]; let editor codMirror.CodeMirror.setValue(`{source_code}`)"
+        execute_code = f"const codeMirror = document.querySelectorAll('.CodeMirror')[0]; codeMirror.CodeMirror.setValue(`{source_code}`)"
         return execute_code

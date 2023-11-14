@@ -9,7 +9,7 @@ class CoreInit():
     def __init__(self, file_path, compiler_name):
         self._chrome_options = Options()
         self._driver = None
-        self._extension = file_path.split('.')[-1]
+        self._extension = file_path.split('.')[-1].strip().lower()
         self._file_path = file_path.strip()
         self._compiler = compiler_name.strip().lower()
         self._file_monitor = None  # Store a reference to the FileMonitorThread
@@ -39,7 +39,7 @@ class CoreInit():
             self._file_monitor.stop()
             self._file_monitor.join()  # Wait for the thread to finish
         self._driver.quit()
-    def __del__():
+    def __del__(self):
         print("Core init destoried ")
 
 class FileMonitorThread(threading.Thread):
