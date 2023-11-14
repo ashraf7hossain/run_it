@@ -1,5 +1,5 @@
 # RUN_IT
-RUN_IT is an automation tool that takes your source code of a desired langulage into the [onecompiler](https://onecompiler.com) or [programize](https://programize.com)
+RUN_IT is an automation tool that takes your source code of a desired langulage into the [onecompiler](https://onecompiler.com) or [programiz](https://programiz.com)
 
 ## Languages it supports now
 
